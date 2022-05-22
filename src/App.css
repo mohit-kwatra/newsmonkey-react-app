@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+.ms-title {
+  font-family: 'Audiowide';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  transition: transform .3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card:hover {
+  transform: translateY(-10px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loader-renamed {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(60, 255, 60);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: animateLoader 1s linear 0s infinite;
 }
 
-.App-link {
-  color: #61dafb;
+.loader-renamed::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  bottom: -6px;
+  right: -6px;
+  border: 2px solid rgb(60, 255, 60);
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(225deg);
 }
 
-@keyframes App-logo-spin {
+@keyframes animateLoader {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-2 ul li:nth-child(2) {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: .25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-1 .container-fluid {
+    justify-content: space-between;
+  }
+  .navbar-2 .navbar-collapse {
+    width: 75%;
+    justify-content: space-between;
+  }
+  .navbar-2 .form-select {
+    width: 8rem;
+  }
+  .navbar-2 ul li:nth-child(2) {
+    border-right: 1px solid #dee2e6;
+    padding-right: 1rem;
+  }
+  .navbar-2 ul li:nth-child(3) {
+    padding-left: 1rem;
   }
 }
