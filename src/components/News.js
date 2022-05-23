@@ -15,8 +15,16 @@ function News(props) {
     callback
   ) => {
     await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=${props.apiKey}`
-    )
+      `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=${props.apiKey}`, 
+      {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Origin': "http://localhost:3000",
+          'Referer': "http://localhost:3000/"
+        }
+      }
+      )
       .then((Response) => Response.json())
       .then(callback)
       .catch((error) => console.log(error));
